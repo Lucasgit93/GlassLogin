@@ -3,18 +3,18 @@
         <div class="title-container">
             <h1 class="title">Log In</h1>
         </div>
-        <form autocomplete="off">
+        <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
             <div class="user-container">
                 <label for="user">Username</label>
-                <input type="text" id="user" class="user-input" required>
+                <input type="text" id="user" class="user-input" required formControlName="username">
             </div>
             <br>
             <div class="pass-container">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="pass-input" required>
+                <input type="password" id="password" class="pass-input" required formControlName="password">
             </div>
             <div class="btn-container">
-                <button type="submit">Log in</button>
+                <button type="submit" [disabled]="myForm.invalid">Log in</button>
             </div>
             <div class="link-container">
                 <span>Don't have an account? </span>

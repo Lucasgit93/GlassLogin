@@ -3,33 +3,38 @@
         <div class="title-container">
             <h1 class="title">New Account</h1>
         </div>
-        <form autocomplete="off">
+        <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="register()">
             <div class="fullName-container">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" class="name-input">
+                <input type="text" id="name" class="name-input" required formControlName="fullName">
+                <span class="validation-span" *ngIf="invalidInput('fullName')">Name field is invalid.</span>
             </div>
             <br>
             <div class="user-container">
                 <label for="user">Username</label>
-                <input type="text" id="user" class="user-input">
+                <input type="text" id="user" class="user-input" required formControlName="username">
+                <span class="validation-span" *ngIf="invalidInput('username')">Username is invalid.</span>
             </div>
             <br>
             <div class="pass-container">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="pass-input">
+                <input type="password" id="password" class="pass-input" required formControlName="password">
+                <span class="validation-span" *ngIf="invalidInput('password')">Password pattern is invalid.</span>
             </div>
             <br>
             <div class="pass-container">
                 <label for="confirmPass">Confirm Password</label>
-                <input type="password" id="confirmPass" class="pass-input">
+                <input type="password" id="confirmPass" class="pass-input" required formControlName="confirmPass">
+                <span class="validation-span" *ngIf="invalidInput('confirmPass')">Password isn't the same.</span>
             </div>
             <br>
             <div class="email-container">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="email-input">
+                <input type="email" id="email" class="email-input" required formControlName="email">
+                <span class="validation-span" *ngIf="invalidInput('email')">{{emailErrorMsg}}</span>
             </div>
             <div class="btn-container">
-                <button type="submit">Register</button>
+                <button type="submit" [disabled]="myForm.invalid">Register</button>
             </div>
             <div class="link-container">
                 <span>Already have an account? </span>

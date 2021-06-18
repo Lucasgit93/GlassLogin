@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #5C258D;
+    background: -webkit-linear-gradient(to left, #4389A2, #5C258D);
+    background: linear-gradient(to left, #4389A2, #5C258D);
+    font-family: "Fira Sans", sans-serif;
+}

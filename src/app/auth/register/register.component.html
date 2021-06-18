@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="form-container animate__animated animate__fadeInDown">
+        <div class="title-container">
+            <h1 class="title">New Account</h1>
+        </div>
+        <form autocomplete="off">
+            <div class="fullName-container">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="name-input">
+            </div>
+            <br>
+            <div class="user-container">
+                <label for="user">Username</label>
+                <input type="text" id="user" class="user-input">
+            </div>
+            <br>
+            <div class="pass-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="pass-input">
+            </div>
+            <br>
+            <div class="pass-container">
+                <label for="confirmPass">Confirm Password</label>
+                <input type="password" id="confirmPass" class="pass-input">
+            </div>
+            <br>
+            <div class="email-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="email-input">
+            </div>
+            <div class="btn-container">
+                <button type="submit">Register</button>
+            </div>
+            <div class="link-container">
+                <span>Already have an account? </span>
+                <a routerLink="/auth/login">Login</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="form-container animate__animated animate__fadeInDown">
+        <div class="title-container">
+            <h1 class="title">Log In</h1>
+        </div>
+        <form autocomplete="off">
+            <div class="user-container">
+                <label for="user">Username</label>
+                <input type="text" id="user" class="user-input" required>
+            </div>
+            <br>
+            <div class="pass-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="pass-input" required>
+            </div>
+            <div class="btn-container">
+                <button type="submit">Log in</button>
+            </div>
+            <div class="link-container">
+                <span>Don't have an account? </span>
+                <a routerLink="/auth/register"> Sign Up</a>
+            </div>
+        </form>
+    </div>
+</div>

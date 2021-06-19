@@ -7,19 +7,19 @@
             <div class="fullName-container">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" class="name-input" required formControlName="fullName">
-                <span class="validation-span" *ngIf="invalidInput('fullName')">Name field is invalid.</span>
+                <span class="validation-span" *ngIf="invalidInput('fullName')">{{nameErrorMsg}}</span>
             </div>
             <br>
             <div class="user-container">
                 <label for="user">Username</label>
                 <input type="text" id="user" class="user-input" required formControlName="username">
-                <span class="validation-span" *ngIf="invalidInput('username')">Username is invalid.</span>
+                <span class="validation-span" *ngIf="invalidInput('username')">{{userErrorMSg}}</span>
             </div>
             <br>
             <div class="pass-container">
                 <label for="password">Password</label>
                 <input type="password" id="password" class="pass-input" required formControlName="password">
-                <span class="validation-span" *ngIf="invalidInput('password')">Password pattern is invalid.</span>
+                <span class="validation-span" *ngIf="invalidInput('password')">{{passErrorMsg}}</span>
             </div>
             <br>
             <div class="pass-container">

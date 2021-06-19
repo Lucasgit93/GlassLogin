@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ValidationsService } from '../../shared/services/validations.service';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,22 @@ myForm: FormGroup = this.formBuilder.group({
 
 
   constructor( private formBuilder: FormBuilder,
-               private router: Router) { }
+               private router: Router,
+               private validationsService: ValidationsService) { }
 
 
 
 
 login(){
-console.log(this.myForm.value);
-
+  const {username, password} = this.myForm.value;
+  this.validationsService.login(username, password)
+  .subscribe(ok =>{
+    if (ok === true){
+      this.router.navigateByUrl('/auth/register');
+    }else{
+      alerto("User don't exist")
+    }
+  })
 }
 
 }

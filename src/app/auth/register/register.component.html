@@ -1,3 +1,4 @@
+<app-bubbles></app-bubbles>
 <div class="container">
     <div class="form-container animate__animated animate__fadeInDown">
         <div class="title-container">
@@ -6,35 +7,41 @@
         <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="register()">
             <div class="fullName-container">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" class="name-input" required formControlName="fullName">
+                <input type="text" id="name" class="name-input" [ngClass]="{'success': success('fullName'), 'invalid': invalid('fullName')}" required formControlName="fullName">
                 <span class="validation-span" *ngIf="invalidInput('fullName')">{{nameErrorMsg}}</span>
             </div>
             <br>
             <div class="user-container">
                 <label for="user">Username</label>
-                <input type="text" id="user" class="user-input" required formControlName="username">
+                <input type="text" id="user" class="user-input" [ngClass]="{'success': success('username'), 'invalid': invalid('username')}" required formControlName="username">
                 <span class="validation-span" *ngIf="invalidInput('username')">{{userErrorMSg}}</span>
             </div>
             <br>
             <div class="pass-container">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="pass-input" required formControlName="password">
+                <div class="pass-check">
+                    <input [type]="passType ? 'text' : 'password'" id="password" class="pass-input" [ngClass]="{'success': success('password'), 'invalid': invalid('password')}" required formControlName="password">
+                    <span class="pass-show" (click)="togglePass()"><img src="../../../assets/img/eye.svg" alt="" width="20"></span>
+                </div>
                 <span class="validation-span" *ngIf="invalidInput('password')">{{passErrorMsg}}</span>
             </div>
             <br>
             <div class="pass-container">
                 <label for="confirmPass">Confirm Password</label>
-                <input type="password" id="confirmPass" class="pass-input" required formControlName="confirmPass">
+                <div class="pass-check">
+                    <input [type]="confirmPassType ? 'text' : 'password'" id="confirmPass" class="pass-input" [ngClass]="{'success': confirm(), 'invalid': invalidPass()}" required formControlName="confirmPass">
+                    <span class="pass-show" (click)="toggleConfirm()"><img src="../../../assets/img/eye.svg" alt="" width="20"></span>
+                </div>
                 <span class="validation-span" *ngIf="invalidInput('confirmPass')">Password isn't the same.</span>
             </div>
             <br>
             <div class="email-container">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="email-input" required formControlName="email">
+                <input type="email" id="email" class="email-input" [ngClass]="{'success': success('email'), 'invalid': invalid('email')}" required formControlName="email">
                 <span class="validation-span" *ngIf="invalidInput('email')">{{emailErrorMsg}}</span>
             </div>
             <div class="btn-container">
-                <button type="submit" [disabled]="myForm.invalid">Register</button>
+                <button type="submit" [ngClass]="{'disabled': myForm.invalid}" [disabled]="myForm.invalid">Register</button>
             </div>
             <div class="link-container">
                 <span>Already have an account? </span>

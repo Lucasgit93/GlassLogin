@@ -23,6 +23,10 @@ myForm: FormGroup = this.formBuilder.group({
 });
 
 
+passType: boolean = false;
+confirmPassType: boolean = false;
+
+
 
 get nameErrorMsg(){
   const errors = this.myForm.get("fullName")?.errors;
@@ -91,11 +95,58 @@ invalidInput(field: string){
 
 
 register(){
-  console.log(this.myForm.value);
-  console.log(this.myForm);
+  const {fullName, username, password, email} = this.myForm.value;
+  this.validationsService
+  .register(fullName, username, password, email)
+  .subscribe();
 
-  this.myForm.reset();
   this.router.navigate(["/auth/login"]);
+  this.myForm.reset();
+}
+
+success(field: string){
+  
+    if(!this.myForm.get(field)?.errors){
+        return true;
+    }
+    else{
+      return;
+    }
+ 
+}
+
+confirm(){
+  if(this.myForm.get("password")!.value && this.myForm.get("confirmPass")!.value){
+    return true;
+  }else{
+    return;
+  }
+}
+invalidPass(){
+  if(!(this.myForm.get("password")!.value
+   && this.myForm.get("confirmPass")!.value) 
+   && this.myForm.get("confirmPass")?.touched){
+    return true;
+  }else{
+    return;
+  }
+}
+
+invalid(field: string){
+  if(this.myForm.get(field)?.errors && this.myForm.get(field)?.touched){
+    return true;
+  }else{
+    return;
+  }
+}
+
+togglePass(){
+  this.passType = !this.passType;
+}
+toggleConfirm(){
+  this.confirmPassType = !this.confirmPassType;
+}
+
 }
 
 
@@ -103,4 +154,4 @@ register(){
 
 
 
-}
+

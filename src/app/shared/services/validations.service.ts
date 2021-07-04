@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { tap, map } from 'rxjs/operators';
+
 
 
 interface AuthResponse{
   ok     : boolean;
-  uid?   : string;
-  name?  : string;
   token? : string;
-  msg?   : string;
 }
 
 interface User {
@@ -57,28 +56,34 @@ passCheck(pass_1: string, pass_2: string){
   }
 
 
+
+
+  register(fullname: string, username: string, password: string, email: string){
+  const url = `${this.baseUrl}/register`;
+  const body = {fullname, username, password, email};
+
+  return this.http.post(url, body);
+  }
+
+
   login(username: string, password: string){
-    const url = `${this.baseUrl}/auth`;
+    const url = `${this.baseUrl}/login`;
     const body = {username, password};
 
-  return this.http.post<AuthResponse>(url, body)
-  .pipe(
-    tap(resp => {
-      if(resp.ok){
-        this._user = {
-          n
-        }
-      }
-    })
-  )
-
-
+    return this.http.post<AuthResponse>(url, body)
+    .pipe(
+      tap(resp => 
+    localStorage.setItem('token', resp.token!))
+    )
   }
 
 
 
 
 
+  logout(){
+    localStorage.clear();
+  }
 
 
 

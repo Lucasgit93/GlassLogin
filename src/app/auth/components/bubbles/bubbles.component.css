@@ -1,0 +1,66 @@
+.bubbles {
+    border-radius: 50%;
+    position: absolute;
+    z-index: -99;
+}
+
+.bubbles.top {
+    left: 10%;
+    top: 20%;
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(circle, #9d2be2 46%, #e178e3 81%);
+}
+
+.bubbles.right {
+    right: 10%;
+    top: 35%;
+    height: 70px;
+    width: 70px;
+    background: radial-gradient(circle, #5C258D 40%, #7f35c0 60%);
+}
+
+.bubbles.bot {
+    left: 10%;
+    bottom: 30%;
+    height: 60px;
+    width: 60px;
+    background: radial-gradient(circle, rgb(120, 227, 185) 46%, rgb(43, 226, 101) 81%);
+}
+
+@media (min-width: 768px) {
+    .bubbles.top {
+        left: 25%;
+    }
+    .bubbles.right {
+        right: 25%;
+    }
+    .bubbles.bot {
+        left: 30%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bubbles.top {
+        left: 35%;
+    }
+    .bubbles.right {
+        right: 35%;
+    }
+    .bubbles.bot {
+        left: 35%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .bubbles.top {
+        left: 40%;
+        top: 25%;
+    }
+    .bubbles.right {
+        right: 40%;
+    }
+    .bubbles.bot {
+        left: 40%;
+    }
+}

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidationsService } from '../../shared/services/validations.service';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,16 +27,19 @@ myForm: FormGroup = this.formBuilder.group({
 
 
 
-login(){
-  const {username, password} = this.myForm.value;
-  this.validationsService.login(username, password)
-  .subscribe(ok =>{
-    if (ok === true){
-      this.router.navigateByUrl('/auth/register');
-    }else{
-      alerto("User don't exist")
-    }
-  })
+    login(){
+            const {username, password} = this.myForm.value;
+            
+
+        this.validationsService.login(username, password)
+          .subscribe(ok => {
+            if(ok){
+              this.router.navigateByUrl('/app');
+            }else{
+              alert('incorrect user')
+            }
+            
+          })
 }
 
 }

@@ -32,6 +32,21 @@
     flex-direction: column;
 }
 
+.pass-check {
+    margin: auto;
+}
+
+#password,
+#confirmPass {
+    margin-left: 22px;
+}
+
+.pass-show {
+    height: 50px;
+    width: 50px;
+    padding-left: 5px;
+}
+
 .user-input,
 .pass-input,
 .name-input,
@@ -40,6 +55,14 @@
     border: none;
     border-radius: 3px;
     height: 25px;
+    text-align: center;
+}
+
+.user-input:focus,
+.pass-input:focus,
+.name-input:focus,
+.email-input:focus {
+    outline: 2px solid blue;
 }
 
 .btn-container,
@@ -61,6 +84,18 @@
     color: #ff0000;
 }
 
+.success {
+    border: rgb(101, 194, 8) 2px solid;
+}
+
+.invalid {
+    border: #ff0000 2px solid;
+}
+
+.disabled {
+    background-color: #808080;
+}
+
 button {
     border: none;
     border-radius: 3px;
@@ -69,6 +104,7 @@ button {
     font-size: medium;
     letter-spacing: 1px;
     background-color: #2541dfcb;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 a {
@@ -106,5 +142,14 @@ label {
     }
     .form-container {
         max-width: 450px;
+    }
+    .user-input,
+    .pass-input,
+    .name-input,
+    .email-input {
+        height: 26px;
+        width: 15rem;
+        font-size: medium;
+        text-align: center;
     }
 }

@@ -10,4 +10,5 @@ __It has__
 * Route protection
 
 __It's hosted in Heroku and Netlify, for the Back-end and the Front-end respectively.__  
-__https://glasslogin.netlify.app/__
+
+__[GlassLogin](https://glasslogin.netlify.app/)__
